@@ -7,7 +7,7 @@ on:
 
 env:
   WORKING_DIRECTORY: src
-  WEBAPP_NAME: DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj     # set this to your application's name
+  WEBAPP_NAME: DotNetFrameworkActions.sln     # set this to your application's name
   WEBAPP_PACKAGE_PATH: 'published'      # set this to the path to your web app project, defaults to the repository root
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
     #     testAssemblyVer2: 'src\DotNetFrameworkActions.UnitTest\bin\Release\DotNetFrameworkActions.UnitTest.dll'
 
     - name: Publish to folder
-      run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
+      run: msbuild DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish artifacts
