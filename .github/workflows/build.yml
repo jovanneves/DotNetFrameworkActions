@@ -7,7 +7,7 @@ on:
 
 env:
   WORKING_DIRECTORY: src
-  WEBAPP_NAME: DotNetFrameworkActions.sln     # set this to your application's name
+  WEBAPP_NAME: DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj     # set this to your application's name
   WEBAPP_PACKAGE_PATH: 'published'      # set this to the path to your web app project, defaults to the repository root
 
 jobs:
