@@ -35,10 +35,9 @@ jobs:
     - name: Run vstests
       uses: microsoft/vstest-action@v1.0.0
       with:
-        working-directory: ${{ env.WORKING_DIRECTORY }}
-        testAssembly: vstest.console.exe .\DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
-        searchFolder: .\TestProject\bin\Debug\
+        testAssembly: vstest.console.exe DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
         runInParallel: true
+        working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish to folder
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
