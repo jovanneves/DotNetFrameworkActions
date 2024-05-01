@@ -5,6 +5,12 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetFrameworkActions.WebApp", "DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj", "{7041C3F9-BB15-4A33-87F6-F9ACA6ABF3B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetFrameworkActions.UnitTest", "DotNetFrameworkActions.UnitTest\DotNetFrameworkActions.UnitTest.csproj", "{EFD89083-5945-459E-B13D-46E5B7EFF085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BCB6B454-BFDC-4BE0-B073-53014F11BEA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{60F66344-CA40-4138-8EEC-0C674A267EBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,17 @@ Global
 		{7041C3F9-BB15-4A33-87F6-F9ACA6ABF3B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7041C3F9-BB15-4A33-87F6-F9ACA6ABF3B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7041C3F9-BB15-4A33-87F6-F9ACA6ABF3B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD89083-5945-459E-B13D-46E5B7EFF085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD89083-5945-459E-B13D-46E5B7EFF085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD89083-5945-459E-B13D-46E5B7EFF085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD89083-5945-459E-B13D-46E5B7EFF085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7041C3F9-BB15-4A33-87F6-F9ACA6ABF3B2} = {BCB6B454-BFDC-4BE0-B073-53014F11BEA8}
+		{EFD89083-5945-459E-B13D-46E5B7EFF085} = {60F66344-CA40-4138-8EEC-0C674A267EBC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE33BBDB-5315-4FC0-8E66-15E7692FE9F4}
