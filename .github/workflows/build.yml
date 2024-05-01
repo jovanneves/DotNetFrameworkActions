@@ -26,6 +26,7 @@ jobs:
     
     - name: Restore NuGet packages
       run: nuget restore ${{ env.WEBAPP_NAME }}
+      working-directory: src
 
     - name: Build
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Release
