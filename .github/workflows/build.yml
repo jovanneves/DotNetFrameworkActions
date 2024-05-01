@@ -6,6 +6,7 @@ on:
       - main
 
 env:
+  WORKING_DIRECTORY: src
   WEBAPP_NAME: DotNetFrameworkActions.sln     # set this to your application's name
   WEBAPP_PACKAGE_PATH: 'published'      # set this to the path to your web app project, defaults to the repository root
 
@@ -22,23 +23,23 @@ jobs:
     - name: Setup NuGet
       uses: nuget/setup-nuget@v2
       with:
-        working-directory: src
+        working-directory: ${{ env.WORKING_DIRECTORY }}
     
     - name: Restore NuGet packages
       run: nuget restore ${{ env.WEBAPP_NAME }}
-      working-directory: src
+      working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Build
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Release
-      working-directory: src
+      working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish to folder
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
-      working-directory: src
+      working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish artifacts
       uses: actions/upload-artifact@v4
       with:
-        working-directory: src
+        working-directory: ${{ env.WORKING_DIRECTORY }}
         name: webapp
         path: ${{ env.WEBAPP_PACKAGE_PATH }}
