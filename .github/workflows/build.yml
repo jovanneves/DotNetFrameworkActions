@@ -32,9 +32,12 @@ jobs:
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test
-      working-directory: ${{ env.WORKING_DIRECTORY }}
+    - name: Run vstests
+      uses: microsoft/vstest-action@v1.0.0
+      with:
+        testAssembly: src\DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
+        searchFolder: .\TestProject\bin\Debug\
+        runInParallel: true
 
     - name: Publish to folder
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
