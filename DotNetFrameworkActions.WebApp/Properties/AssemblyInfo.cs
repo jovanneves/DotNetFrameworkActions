@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 // As informações gerais sobre um assembly são controladas através do seguinte
 // conjunto de atributos a seguir. Altere esses valores de atributo para modificar as informações
-// associadas a um assembly.
+// associadas a um assembly..
 [assembly: AssemblyTitle("DotNetFrameworkActions.WebApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
