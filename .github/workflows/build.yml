@@ -31,12 +31,15 @@ jobs:
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Debug
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
-    - name: Run tests
-      uses: microsoft/vstest-action@v1.0.0
-      with:
-        testSelector: 'testAssemblies'
-        testAssemblyVer2: 'DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll'
-        working-directory: ${{ env.WORKING_DIRECTORY }}
+    # - name: Run tests
+    #   uses: microsoft/vstest-action@v1.0.0
+    #   with:
+    #     testSelector: 'testAssemblies'
+    #     testAssemblyVer2: 'DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll'
+    #     working-directory: ${{ env.WORKING_DIRECTORY }}
+
+    - name: Execute unit tests
+      run: dotnet test
 
     - name: Publish to folder
       run: msbuild DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
