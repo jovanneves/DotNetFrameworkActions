@@ -39,7 +39,8 @@ jobs:
     #     working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Execute unit tests
-      run: dotnet test
+      run: dotnet test DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
+      working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish to folder
       run: msbuild DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
