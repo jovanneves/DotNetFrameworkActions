@@ -32,7 +32,7 @@ jobs:
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish to folder
-      run: msbuild DotNetFrameworkActions.sln /p:OutputPath=../output /p:Configuration=Release
+      run: msbuild ${{ env.WEBAPP_NAME }} /p:OutputPath=../output /p:Configuration=Release
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Upload artifact
