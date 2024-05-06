@@ -43,7 +43,7 @@ jobs:
     #   working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish to folder
-      run: msbuild DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj /p:OutputPath=.\output /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
+      run: msbuild DotNetFrameworkActions.WebApp\DotNetFrameworkActions.WebApp.csproj /p:OutputPath=..\..\output /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ env.WEBAPP_PACKAGE_PATH }} /p:PackageAsSingleFile=false
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Acessar pasta output
