@@ -31,6 +31,12 @@ jobs:
       run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Debug
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
+    - name: Run tests
+      run: |
+        msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Debug /t:VSTest
+        MSTest DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
+      working-directory: ${{ env.WORKING_DIRECTORY }}
+
     - name: Publish to folder
       run: msbuild ${{ env.WEBAPP_NAME }} /p:OutputPath=../output /p:Configuration=Release
       working-directory: ${{ env.WORKING_DIRECTORY }}
