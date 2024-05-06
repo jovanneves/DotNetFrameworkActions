@@ -28,12 +28,13 @@ jobs:
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Build
-      run: |
-        # working-directory: ${{ env.WORKING_DIRECTORY }}
-        msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Debug /t:VSTest
+      run: msbuild ${{ env.WEBAPP_NAME }} /p:Configuration=Debug
+      working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Run tests
-      run: MSTest DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
+      run: |
+        msbuild DotNetFrameworkActions.UnitTest\DotNetFrameworkActions.UnitTest.csproj /p:Configuration=Debug /t:VSTest
+        MSTest DotNetFrameworkActions.UnitTest\bin\Debug\DotNetFrameworkActions.UnitTest.dll
       working-directory: ${{ env.WORKING_DIRECTORY }}
 
     - name: Publish to folder
